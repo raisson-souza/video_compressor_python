@@ -1,7 +1,7 @@
-import subprocess
-import os
+from subprocess import Popen
+from os import walk
 
-def compress_video(file_name):
+def compress_video(file_name : str):
     ffmpeg_params = [
         "ffmpeg",
         "-i",
@@ -15,14 +15,14 @@ def compress_video(file_name):
         f"output/{ file_name }"
     ]
 
-    process = subprocess.Popen(ffmpeg_params)
+    process = Popen(ffmpeg_params)
     process.wait()
 
 def extract_files():
     i = 0
     files = []
 
-    for _, _, file in os.walk("./input"):
+    for _, _, file in walk("./input"):
         if i == 0:
             files.append(file)
         i += 1
@@ -39,8 +39,6 @@ def extract_video_files_names(files_list : list):
     return videos_names
 
 if __name__ == "__main__":
-    input_file = "teste.mp4"
-
     videos_names = extract_video_files_names(extract_files())
 
     for video in videos_names:
