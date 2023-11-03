@@ -1,30 +1,47 @@
 import subprocess
 import os
 
-def compress_video(input_file, output_file):
-    # Define os parâmetros do ffmpeg para a compressão.
+def compress_video(file_name):
     ffmpeg_params = [
         "ffmpeg",
         "-i",
-        input_file,
+        f"input/{ file_name }",
         "-crf",
         "30",
         "-c:v",
         "libvpx-vp9",
         "-vf",
         "scale=-2:360",
-        output_file
+        f"output/{ file_name }"
     ]
 
-    # Executa o comando ffmpeg.
     process = subprocess.Popen(ffmpeg_params)
     process.wait()
 
-    # Verifica se o comando ffmpeg foi bem-sucedido.
-    return process.returncode == 0
+def extract_files():
+    i = 0
+    files = []
 
+    for _, _, file in os.walk("./input"):
+        if i == 0:
+            files.append(file)
+        i += 1
+
+    return files[0]
+
+def extract_video_files_names(files_list : list):
+    videos_names = []
+
+    for file_name in files_list:
+        if ".mp4" in file_name:
+            videos_names.append(file_name)
+    
+    return videos_names
 
 if __name__ == "__main__":
     input_file = "teste.mp4"
 
-    compress_video(input_file, "output.mp4")
+    videos_names = extract_video_files_names(extract_files())
+
+    for video in videos_names:
+        compress_video(video)
