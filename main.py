@@ -11,7 +11,7 @@ def compress_video(file_name : str):
         "-c:v",
         "libvpx-vp9",
         "-vf",
-        "scale=-2:360",
+        "scale=-2:720",
         f"output/{ file_name }"
     ]
 
