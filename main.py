@@ -7,9 +7,11 @@ def compress_video(file_name : str):
         "-i",
         f"input/{ file_name }",
         "-crf",
-        "30",
+        "22",
+        "-threads",
+        "8",
         "-c:v",
-        "libvpx-vp9",
+        "libx264",
         "-vf",
         "scale=-2:720",
         f"output/{ file_name }"
