@@ -13,6 +13,7 @@ Esse projeto tem como objetivo auxiliar **QAs/Testers** em suas evidências grav
 
 ### Necessidades:
 + Python 3 instalado na máquina.
++ A compressão atualmente só suporta arquivos .mp4
 
 ### Contato:
 + raisson.souza@voalle.com.br
