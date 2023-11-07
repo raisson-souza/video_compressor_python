@@ -13,9 +13,14 @@ Esse projeto tem como objetivo auxiliar **QAs/Testers** em suas evidências grav
 
 ### Necessidades:
 + Python 3 instalado na máquina.
-+ A compressão atualmente só suporta arquivos .mp4
++ A compressão atualmente só suporta arquivos .mp4.
++ **Atenção!** Realizar a compresão de vídeos já comprimidos irá resultar em uma confirmação no terminal/console, você pode concordar ou não.
 
 ### Contato:
 + raisson.souza@voalle.com.br
 
-### V0.1.
+#### V0.1.
+Versão base.
+
+#### V0.2.
+Adição de Logs.
