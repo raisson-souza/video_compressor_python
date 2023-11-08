@@ -9,11 +9,22 @@ Esse projeto tem como objetivo auxiliar **QAs/Testers** em suas evidências grav
 3. Execute o arquivo main.py.
 4. Retire seus vídeos comprimidos na pasta "output".
 
-> Para executar o arquivo main.py você pode tentar clicar nele duas vezes ou abrir um terminal na mesma pasta e digitar: python3 main.py
+> Para executar o arquivo main.py você pode:
+> 
+> Clicar nele duas vezes ou
+> 
+> Abrir um terminal na mesma pasta e digitar (uma das opções):
+> > python3 main.py
+>
+> > python main.py
+> 
+> > py main.py
 
-### Necessidades:
+### Cuidados:
 + Python 3 instalado na máquina.
-+ A compressão atualmente só suporta arquivos .mp4.
++ A compressão atualmente só suporta arquivos:
++ + .mp4
++ + .mkv
 + **Atenção!** Realizar a compresão de vídeos já comprimidos irá resultar em uma confirmação no terminal/console, você pode concordar ou não.
 
 ### Contato:
@@ -24,3 +35,6 @@ Versão base.
 
 #### V0.2.
 Adição de Logs.
+
+#### V0.3.
+Compressão disponível para arquivos .mkv
