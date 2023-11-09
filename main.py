@@ -38,23 +38,25 @@ def compress_video(video : Video):
     process = Popen(ffmpeg_params)
     process.wait()
 
-def extract_files():
-    i = 0
-    files = []
-
-    for _, _, file in walk("./input"):
-        if i == 0:
-            files.append(file)
-        i += 1
-
-    return files[0]
-
-def extract_video_files_names(files_list : list):
+def extract_videos(source : str):
     videos = []
 
-    for file_name in files_list:
-        if ".mp4" in file_name or ".mkv" in file_name:
-            video = Video(file_name, path.getsize((f"./input/{ file_name }")))
+    for _, _, file in walk(f"./{ source }"):
+        for file_name in file:
+            if ".mp4" in file_name or ".mkv" in file_name:
+                videos.append(file_name)
+        break
+
+    return videos
+
+def get_videos():
+    input_videos  = extract_videos("input")
+    output_videos = extract_videos("output")
+    videos = []
+
+    for video_name in input_videos:
+        if video_name not in output_videos:
+            video = Video(video_name, path.getsize((f"./input/{ video_name }")))
             videos.append(video)
 
     return videos
@@ -68,9 +70,13 @@ def save_logs(logs : list):
 
     log_file.close()
 
-if __name__ == "__main__":
-    videos = extract_video_files_names(extract_files())
+def main():
+    videos = get_videos()
     videos_logs = []
+
+    if len(videos) == 0:
+        print("Nenhum vídeo a ser comprimido.")
+        return
 
     for video in videos:
         initial = datetime.now()
@@ -82,3 +88,7 @@ if __name__ == "__main__":
     system("cls")
     save_logs(videos_logs)
     sleep(8)
+
+
+if __name__ == "__main__":
+    main()

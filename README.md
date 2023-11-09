@@ -25,7 +25,7 @@ Esse projeto tem como objetivo auxiliar **QAs/Testers** em suas evidências grav
 + A compressão atualmente só suporta arquivos:
 + + .mp4
 + + .mkv
-+ **Atenção!** Realizar a compresão de vídeos já comprimidos irá resultar em uma confirmação no terminal/console, você pode concordar ou não.
++ **Atenção!** Qualquer vídeo já comprimido ainda presente em "output" será ignorado no processo de compressão se ainda estiver presente em "input".
 
 ### Contato:
 + raisson.souza@voalle.com.br
@@ -38,3 +38,6 @@ Adição de Logs.
 
 #### V0.3.
 Compressão disponível para arquivos .mkv
+
+#### V0.4.
+Validação de vídeos já comprimidos.
