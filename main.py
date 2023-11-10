@@ -26,7 +26,10 @@ class Video:
 
     def create_output_dir(self):
         if self.OutputPath != "./output":
-            mkdir(self.OutputPath)
+            try:
+                mkdir(self.OutputPath)
+            except:
+                pass
 
     def set_size_after(self, size):
         self.SizeAfter = round(size / 1024, 2)
