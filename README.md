@@ -5,7 +5,7 @@ Esse projeto tem como objetivo auxiliar **QAs/Testers** em suas evidências grav
 ## Como Usar:
 
 1. Clone o projeto na sua área de trabalho.
-2. Coloque na pasta "input" todos os vídeos que deseja comprimir.
+2. Coloque na pasta "input" todos os vídeos ou pastas com vídeos que deseja comprimir.
 3. Execute o arquivo main.py.
 4. Retire seus vídeos comprimidos na pasta "output".
 
@@ -25,6 +25,7 @@ Esse projeto tem como objetivo auxiliar **QAs/Testers** em suas evidências grav
 + A compressão atualmente só suporta arquivos:
 + + .mp4
 + + .mkv
++ Os vídeos originais a serem comprimidos não serão eliminados, apenas uma cópia comprimida será gerada em "output".
 + **Atenção!** Qualquer vídeo já comprimido ainda presente em "output" será ignorado no processo de compressão se ainda estiver presente em "input".
 
 ### Contato:
@@ -41,3 +42,6 @@ Compressão disponível para arquivos .mkv
 
 #### V0.4.
 Validação de vídeos já comprimidos.
+
+#### V0.5.
+A compressão agora recria qualquer pasta com vídeos dentro de "input", o que significa que se você prefere organizar seus vídeos dentro de pastas com até mais pastas com vídeos dentro, essa mesma arquitetura com os vídeos comprimidos será gerada em "output", preservando a sua organização.
