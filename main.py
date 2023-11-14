@@ -86,7 +86,7 @@ def get_videos():
         if input_video.Name not in output_videos_list:
             video = Video(
                 input_video.Name,
-                path.getsize(input_video.Path),
+                path.getsize(f"{ input_video.Path }/{ input_video.Name }"),
                 input_video.Path
             )
             videos.append(video)
