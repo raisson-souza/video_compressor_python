@@ -20,16 +20,24 @@ Esse projeto tem como objetivo auxiliar **QAs/Testers** em suas evidências grav
 > 
 > > py main.py
 
+---
+
 ### Cuidados:
-+ Python 3 instalado na máquina.
-+ A compressão atualmente só suporta arquivos:
-+ + .mp4
-+ + .mkv
-+ Os vídeos originais a serem comprimidos não serão eliminados, apenas uma cópia comprimida será gerada em "output".
+Python 3 instalado na máquina.  
+No caso de sistemas operacionais Linux é necessário instalar o software FFMPEG:  
+> sudo apt install ffmpeg  
+> 
+A compressão atualmente suporta apenas arquivos **MP4** ou **MKV**.  
+Os vídeos originais a serem comprimidos não serão eliminados, apenas uma cópia comprimida será gerada em "output".
+
 + **Atenção!** Qualquer vídeo já comprimido ainda presente em "output" será ignorado no processo de compressão se ainda estiver presente em "input".
+
+---
 
 ### Contato:
 + raisson.souza@voalle.com.br
+
+---
 
 #### V0.1.
 Versão base.
