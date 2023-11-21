@@ -53,3 +53,6 @@ Validação de vídeos já comprimidos.
 
 #### V0.5.
 A compressão agora recria qualquer pasta com vídeos dentro de "input", o que significa que se você prefere organizar seus vídeos dentro de pastas com até mais pastas com vídeos dentro, essa mesma arquitetura com os vídeos comprimidos será gerada em "output", preservando a sua organização.
+
+#### V0.6.
+Ajuste dos logs.
