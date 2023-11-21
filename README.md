@@ -2,6 +2,8 @@
 
 Esse projeto tem como objetivo auxiliar **QAs/Testers** em suas evidências gravadas proporcionando uma compressão que reduza consideravelmente os vídeos sem perder muita qualidade.
 
+**OBS:** Este algoritmo pode possuir erros ou falhas não mapeadas ainda, portanto seu teste e utilização é muito importante, assim como sinalizar qualquer inconsistência, além disso, procure experimentar as **funcionalidades em teste** acessando a branch *testing*, lá poderá utilizar recursos novos implementados, porém, atente-se que poderão ocorrer erros críticos.
+
 ## Como Usar:
 
 1. Clone o projeto na sua área de trabalho.
