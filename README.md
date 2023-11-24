@@ -71,3 +71,8 @@ A compressão agora recria qualquer pasta com vídeos dentro de "input", o que s
 
 #### V0.6.
 Ajuste dos logs.
+
+#### V0.7.
+Arquivo de configuração de tamanho mínimo de vídeos para a compressão.  
+No arquivo CONFIG.txt, na linha "MINIMUM_VIDEO_SIZE_COMPRESSION" você pode definir o tamanho mínimo de compressão de um vídeo, que por padrão é 20mb, o que significa que **somente vídeos maiores que 20mb serão comprimidos**, qualquer outro menor que isso será apenas copiado para a pasta de destino sem sofrer alterações.  
+Obs: O número é em Megabytes e não deve possuir espaço após "=", qualquer divergência desta regra resultará em nenhum vídeo ser comprimido, apenas copiado.

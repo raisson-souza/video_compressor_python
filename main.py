@@ -1,7 +1,8 @@
 from datetime import datetime
-from os import walk, system, path, mkdir
+from os import walk, system, path, mkdir, makedirs
 from subprocess import Popen
 from time import sleep
+from shutil import copyfile
 
 class Video:
     Name : str
@@ -29,9 +30,14 @@ class Video:
     def create_output_dir(self):
         if self.OutputPath != "./output":
             try:
-                mkdir(self.OutputPath)
-            except:
+                if self.OutputPath.count("/") > 2:
+                    makedirs(self.OutputPath)
+                else:
+                    mkdir(self.OutputPath)
+            except FileExistsError or OSError:
                 pass
+            except Exception as ex:
+                Log.error_log(f"Houve um erro ao criar a pasta de destino. Erro: { ex }", self.Name)
 
     def set_size_after(self, size):
         parsed_size = Video.parse_mb_size(size)
@@ -90,8 +96,23 @@ def extract_videos(source : str):
 
     return videos
 
-def get_videos():
+def get_videos(minumum_video_size_compression : int):
     '''Captura e mapeia vídeos válidos para compressão em INPUT.'''
+
+    def perform_copy(input_path : str, output_path : str, video_name : str):
+        try:
+            if output_path.count("/") > 2:
+                makedirs(output_path)
+            else:
+                mkdir(output_path)
+            copyfile(f"{ input_path }/{ video_name }", f"{ output_path }/{ video_name }")
+        except FileExistsError or OSError:
+            try:
+                copyfile(f"{ input_path }/{ video_name }", f"{ output_path }/{ video_name }")
+            except Exception as ex:
+                Log.error_log(f"Não foi possível copiar um vídeo mais leve que a compressão mínima. Erro: { ex }", video_name)
+        except Exception as ex:
+            Log.error_log(f"Não foi possível copiar um vídeo mais leve que a compressão mínima. Erro: { ex }", video_name)
 
     input_videos  = extract_videos("input")
     output_videos = extract_videos("output")
@@ -101,12 +122,18 @@ def get_videos():
 
     for input_video in input_videos:
         if input_video.Name not in output_videos_list:
-            video = Video(
-                input_video.Name,
-                path.getsize(f"{ input_video.Path }/{ input_video.Name }"),
-                input_video.Path
-            )
-            videos.append(video)
+            video_size = path.getsize(f"{ input_video.Path }/{ input_video.Name }")
+            output_video_path = str(input_video.Path).replace('input', 'output')
+            if video_size > minumum_video_size_compression and minumum_video_size_compression != 0:
+                videos.append(
+                    Video(
+                        input_video.Name,
+                        video_size,
+                        input_video.Path
+                    )
+                )
+            else:
+                perform_copy(input_video.Path, output_video_path, input_video.Name)
 
     return videos
 
@@ -167,8 +194,32 @@ def save_logs(logs : list):
         log_msg = log.generate_log()
         Log.save_log(log_msg)
 
+def get_minimum_video_size_compression():
+    '''
+    Captura o tamanho mínimo de compressão de vídeo configurado pelo usuário.\n
+    Valor em bytes.
+    '''
+
+    def wrong_config_log():
+        Log.error_log("Tamanho mínimo de compressão mal configurado.")
+
+    try:
+        file = open("CONFIG.txt", "r")
+        lines = file.readlines()
+        minimum_video_size_compression = lines[0].split("=")[1]
+        if lines[0].split("=")[0] == "MINIMUM_VIDEO_SIZE_COMPRESSION":
+            return int(minimum_video_size_compression) * (10 ** 6)
+        wrong_config_log()
+        return 0
+    except:
+        wrong_config_log()
+        return 0
+    finally:
+        file.close()
+
 def main():
-    videos = get_videos()
+    minimum_video_size_compression = get_minimum_video_size_compression()
+    videos = get_videos(minimum_video_size_compression)
     videos_logs = []
 
     if len(videos) == 0:
