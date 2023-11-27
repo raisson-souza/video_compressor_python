@@ -50,7 +50,7 @@ Os vídeos originais a serem comprimidos **não serão excluídos**, apenas uma 
 ---
 
 ### Contato:
-+ raisson.souza@voalle.com.br
++ raisson.souza@grupovoalle.com.br
 
 ---
 
