@@ -17,7 +17,7 @@ Esse projeto tem como objetivo auxiliar **QAs/Testers** em suas evidências grav
 + **USANDO GIT:**
 + 1. Abra um terminal na sua área de trabalho;
 + 2. Digite:
-+ > git clone https://github.com/RaissonSS/video_compressor_python.git
++ > git clone https://github.com/raisson-souza/video_compressor_python.git
 
 ---
 
