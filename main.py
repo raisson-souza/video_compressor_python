@@ -236,7 +236,6 @@ def main():
             Log.error_log(ex, video.Name)
 
     system("clear")
-    system("cls")
     save_logs(videos_logs)
     sleep(8)
 
