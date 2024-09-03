@@ -7,13 +7,13 @@ Esse projeto tem como objetivo auxiliar **QAs/Testers** em suas evidências grav
 ## Como Usar:
 
 1. **Clone o projeto** ou **baixe uma release do projeto**.
-    + Veja como na aba *Como instalar o Algoritmo*.
+    + Veja como na aba *Como baixar o repositório*.
 2. Coloque na pasta "input" todos os vídeos ou pastas com vídeos que deseja comprimir.
 3. Execute o arquivo **main.py**.
     + Veja como na aba *Como executar o algoritmo*.
 4. Retire seus vídeos comprimidos na pasta "output".
 
-## Como instalar o algoritmo:
+## Como baixar o repositório:
 Escolha uma das opções abaixo.
 
 + **INSTALANDO COM GIT:**
@@ -48,11 +48,6 @@ Os vídeos originais a serem comprimidos **não serão excluídos**, apenas uma 
 
 ---
 
-### Contato:
-+ raisson.souza@grupovoalle.com.br
-
----
-
 #### V0.1.
 + Versão base.
 
@@ -80,3 +75,8 @@ A compressão agora recria qualquer pasta com vídeos dentro de "input", o que s
 
 No arquivo CONFIG.txt, na linha "MINIMUM_VIDEO_SIZE_COMPRESSION" você pode definir o tamanho mínimo de compressão de um vídeo, que por padrão é 20mb, o que significa que **somente vídeos maiores que 20mb serão comprimidos**, qualquer outro menor que isso será apenas copiado para a pasta de destino sem sofrer alterações.  
 Obs: O número é em Megabytes e não deve possuir espaço após "=", qualquer divergência desta regra resultará em nenhum vídeo ser comprimido, apenas copiado.
+
+#### V0.8.
+
+Corrigida mensagem de erro na finalização do processo.  
+**Repositório arquivado**.
